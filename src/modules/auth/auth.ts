@@ -12,6 +12,7 @@ if (!env.BETTER_AUTH_SECRET) {
 
 export const auth = betterAuth({
   secret: env.BETTER_AUTH_SECRET,
+  baseURL: env.BETTER_AUTH_URL,
   basePath: "/api/v1/auth",
   database: drizzleAdapter(getDb(), {
     provider: "pg",

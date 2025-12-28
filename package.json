@@ -4,6 +4,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "bun run --watch src/main.ts",
+    "build": "bun build ./src/main.ts --outfile dist/main.js --target bun",
+    "start": "NODE_ENV=prod bun run dist/main.js",
     "db:generate": "bunx drizzle-kit generate",
     "db:migrate": "bunx drizzle-kit migrate",
     "db:studio": "bunx drizzle-kit studio"
@@ -14,6 +16,9 @@
     "better-auth": "^1.4.9",
     "drizzle-orm": "^0.44.5",
     "elysia": "latest",
+    "elysia-helmet": "^3.0.0",
+    "elysia-rate-limit": "^4.4.2",
+    "helmet": "^8.1.0",
     "postgres": "^3.4.7",
     "zod": "^3.24.0"
   },

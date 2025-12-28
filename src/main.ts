@@ -6,8 +6,12 @@ import { healthRoutes } from "./modules/health/health.routes";
 import { AppErrorCode, isAppError } from "./shared/http/errors";
 import { logger } from "./shared/logging/logger";
 import { openApiPlugin } from "./plugins/openapi.plugin";
+import { securityPlugin } from "./plugins/security.plugin";
+import { corsPlugin } from "./plugins/cors.plugin";
 
 const app = new Elysia()
+  .use(securityPlugin)
+  .use(corsPlugin)
   .use(betterAuthPlugin)
   .use(openApiPlugin)
   .group("/api", (api) => api.use(healthRoutes))
